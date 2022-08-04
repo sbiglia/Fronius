@@ -1,0 +1,147 @@
+2022-07-29 18:23:53.381 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:23:53.481 -03:00 [ERR] Error saving data to the database!!
+Npgsql.PostgresException (0x80004005): 3D000: database "solar" does not exist
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|191_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<Get>g__RentAsync|28_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|45_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 118
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "solar" does not exist
+    File: postinit.c
+    Line: 855
+    Routine: InitPostgres
+2022-07-29 18:24:23.824 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:24:23.851 -03:00 [ERR] Error saving data to the database!!
+Npgsql.PostgresException (0x80004005): 3D000: database "solar" does not exist
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|191_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<Get>g__RentAsync|28_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|45_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 118
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "solar" does not exist
+    File: postinit.c
+    Line: 855
+    Routine: InitPostgres
+2022-07-29 18:32:47.722 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:33:36.740 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:33:41.748 -03:00 [ERR] Error saving data to the database!!
+System.InvalidCastException: The value "{ Value = 1659130421732 }" is not of type "NpgsqlParameter" and cannot be used in this parameter collection.
+   at Npgsql.NpgsqlParameterCollection.Cast(Object value)
+   at Npgsql.NpgsqlParameterCollection.Add(Object value)
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 122
+2022-07-29 18:34:12.077 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:34:13.952 -03:00 [ERR] Error saving data to the database!!
+System.InvalidOperationException: Connection already open
+   at Npgsql.NpgsqlConnection.Open(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 118
+2022-07-29 18:37:19.931 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:37:24.330 -03:00 [ERR] Error saving data to the database!!
+System.InvalidCastException: The value "{ Value = 1659130644, NpgsqlDbType = Timestamp }" is not of type "NpgsqlParameter" and cannot be used in this parameter collection.
+   at Npgsql.NpgsqlParameterCollection.Cast(Object value)
+   at Npgsql.NpgsqlParameterCollection.Add(Object value)
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 123
+2022-07-29 18:37:59.601 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:38:01.495 -03:00 [ERR] Error saving data to the database!!
+System.InvalidCastException: The value "{ Value = 1659130681 }" is not of type "NpgsqlParameter" and cannot be used in this parameter collection.
+   at Npgsql.NpgsqlParameterCollection.Cast(Object value)
+   at Npgsql.NpgsqlParameterCollection.Add(Object value)
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 123
+2022-07-29 18:40:25.803 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:40:26.073 -03:00 [ERR] Error saving data to the database!!
+System.InvalidCastException: The value "{ Value = 7/29/2022 6:40:26 PM -03:00 }" is not of type "NpgsqlParameter" and cannot be used in this parameter collection.
+   at Npgsql.NpgsqlParameterCollection.Cast(Object value)
+   at Npgsql.NpgsqlParameterCollection.Add(Object value)
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 123
+2022-07-29 18:41:16.537 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:41:16.804 -03:00 [ERR] Error saving data to the database!!
+System.InvalidCastException: The value "{ Value = 7855 }" is not of type "NpgsqlParameter" and cannot be used in this parameter collection.
+   at Npgsql.NpgsqlParameterCollection.Cast(Object value)
+   at Npgsql.NpgsqlParameterCollection.Add(Object value)
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 123
+2022-07-29 18:42:29.201 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:42:29.504 -03:00 [ERR] Error saving data to the database!!
+System.InvalidOperationException: Parameter '' must have its value set
+   at Npgsql.NpgsqlParameter.ResolveHandler(ConnectorTypeMapper typeMapper)
+   at Npgsql.NpgsqlParameterCollection.ValidateAndBind(ConnectorTypeMapper typeMapper)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 144
+2022-07-29 18:43:47.468 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:43:47.766 -03:00 [ERR] Error saving data to the database!!
+System.InvalidOperationException: Parameter '' must have its value set
+   at Npgsql.NpgsqlParameter.ResolveHandler(ConnectorTypeMapper typeMapper)
+   at Npgsql.NpgsqlParameterCollection.ValidateAndBind(ConnectorTypeMapper typeMapper)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 144
+2022-07-29 18:44:18.103 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:44:18.117 -03:00 [ERR] Error saving data to the database!!
+System.InvalidOperationException: Connection already open
+   at Npgsql.NpgsqlConnection.Open(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 119
+2022-07-29 18:44:46.723 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:46:16.480 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:47:28.346 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 18:54:26.510 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:02:17.841 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:02:49.251 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:02:49.266 -03:00 [ERR] Error saving data to the database!!
+System.InvalidOperationException: Connection already open
+   at Npgsql.NpgsqlConnection.Open(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 119
+2022-07-29 19:04:18.140 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:04:50.053 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:05:20.377 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:05:50.737 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:06:21.061 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:06:51.354 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:07:21.679 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:07:51.990 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:08:22.272 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:08:52.611 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:09:22.969 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:09:53.345 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:10:23.653 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:10:53.972 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:11:24.281 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:11:54.681 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:12:25.095 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:12:55.412 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:13:25.763 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:13:56.089 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:14:26.358 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:14:56.728 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:15:27.110 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:15:57.448 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:16:18.014 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:16:18.370 -03:00 [ERR] Error saving data to the database!!
+System.InvalidOperationException: Could not find color or style 'PGRID:'.
+   at Spectre.Console.StyleParser.Parse(String text) in /_/src/Spectre.Console/StyleParser.cs:line 10
+   at Spectre.Console.MarkupParser.Parse(String text, Style style) in /_/src/Spectre.Console/Internal/Text/Markup/MarkupParser.cs:line 22
+   at Spectre.Console.AnsiConsoleExtensions.MarkupLine(IAnsiConsole console, String value) in /_/src/Spectre.Console/Extensions/AnsiConsoleExtensions.Markup.cs:line 117
+   at FroniusDataCollector.Program.WriteLogMessage(String message) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 165
+   at FroniusDataCollector.Program.SaveToDatabase(PowerFlowRealtimeData data) in C:\work\happy\fronius\Fronius\FroniusDataCollector\Program.cs:line 144
+2022-07-29 19:18:16.677 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:18:47.362 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:19:17.671 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:19:48.106 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]
+2022-07-29 19:20:18.390 -03:00 [INF] Response data from fronius: [Code: 0] [Reason: ] [UserMessage: ]

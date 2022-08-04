@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySolarViewer", "MySolarViewer.csproj", "{880678BE-5234-4EB1-ABF0-734363BD1E3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FroniusDataCollector", "..\FroniusDataCollector\FroniusDataCollector.csproj", "{804B03CA-C7D7-4C03-9D70-E653DB663D5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{880678BE-5234-4EB1-ABF0-734363BD1E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880678BE-5234-4EB1-ABF0-734363BD1E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880678BE-5234-4EB1-ABF0-734363BD1E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880678BE-5234-4EB1-ABF0-734363BD1E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{804B03CA-C7D7-4C03-9D70-E653DB663D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{804B03CA-C7D7-4C03-9D70-E653DB663D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{804B03CA-C7D7-4C03-9D70-E653DB663D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{804B03CA-C7D7-4C03-9D70-E653DB663D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C19EEF7-3581-4FF3-AB01-724A99DDE356}
+	EndGlobalSection
+EndGlobal
