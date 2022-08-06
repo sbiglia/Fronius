@@ -4,5 +4,5 @@ namespace FroniusDataCollector;
 
 public interface IDataSaver
 {
-    void SaveData(PowerFlowRealtimeData data);
+    void SaveData(PowerFlowRealtimeData data, DateTime timestamp);
 }

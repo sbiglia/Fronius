@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 using FroniusDataCollector.Settings;
 using FroniusSolarClient.Entities.SolarAPI.V1.PowerFlowRealtimeData;
 using MySqlConnector;
@@ -16,7 +17,7 @@ public class MysqlDataSaver : IDataSaver
         _settings = settings;
     }
 
-    public void SaveData(PowerFlowRealtimeData data)
+    public void SaveData(PowerFlowRealtimeData data, DateTime timestamp)
     {
         try
         {
@@ -31,7 +32,7 @@ public class MysqlDataSaver : IDataSaver
             var sql = "INSERT INTO solar_production_log (timestamp, e_day, e_year, e_total, mode, p_akku, p_grid, p_load, p_pv, rel_autonomy, rel_self_consumption, backup_mode, battery_standby) VALUES (@time, @eday, @eyear, @etotal, @mode, @pakku, @pgrid, @pload, @ppv, @relAutonomy, @relSelfConsumption, @backupMode, @batteryStandby)";
 
             using var command = new MySqlCommand(sql, _connection);
-            command.Parameters.AddWithValue("@time", DateTime.Now);
+            command.Parameters.AddWithValue("@time", timestamp);
             command.Parameters.AddWithValue("@eday", data.Site.EDay);
             command.Parameters.AddWithValue("@eyear", data.Site.EYear);
             command.Parameters.AddWithValue("@etotal", data.Site.ETotal);

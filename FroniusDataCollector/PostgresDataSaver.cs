@@ -18,7 +18,7 @@ public class PostgresDataSaver : IDataSaver
         _settings = settings;
     }
     
-    public void SaveData(PowerFlowRealtimeData data)
+    public void SaveData(PowerFlowRealtimeData data, DateTime timestamp)
     {
         try
         {
@@ -36,7 +36,7 @@ public class PostgresDataSaver : IDataSaver
             {
                 Parameters =
                     {
-                        new () {Value = DateTime.Now, NpgsqlDbType = NpgsqlDbType.Timestamp},
+                        new () {Value =timestamp, NpgsqlDbType = NpgsqlDbType.Timestamp},
                         new () {Value = data.Site.EDay},
                         new () {Value = data.Site.EYear},
                         new () {Value = data.Site.ETotal},

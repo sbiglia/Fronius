@@ -99,7 +99,7 @@ namespace FroniusDataCollector
                     Log.Logger.Information(
                         $"Response data from fronius: [Code: {response.Head.Status.Code}] [Reason: {response.Head.Status.Reason}] [UserMessage: {response.Head.Status.UserMessage}]");
 
-                    _dataSaver?.SaveData(response.Body.Data);
+                    _dataSaver?.SaveData(response.Body.Data, response.Head.Timestamp);
                 }
 
                 var secondsToWait = _appSettings.DataRecordDataEvery;
