@@ -1,7 +1,11 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="MySolarViewer.App">
+             x:Class="MySolarViewer.App"
+             xmlns:sty="using:FluentAvalonia.Styling"
+             >
     <Application.Styles>
         <FluentTheme Mode="Light"/>
+        <StyleInclude Source="avares://SukiUI/Theme/Index.xaml"/>
+        <sty:FluentAvaloniaTheme />
     </Application.Styles>
 </Application>

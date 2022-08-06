@@ -2,8 +2,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:scott="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+        xmlns:local="clr-namespace:MySolarViewer"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MySolarViewer.MainWindow"
         Title="MySolarViewer">
-    Welcome to Avalonia!
+	<suki:SideMenu>
+		<suki:SideMenu.DataContext>
+			<suki:SideMenuModel>
+
+				<suki:SideMenuModel.HeaderContent>
+					<TextBlock  Text="Your Custom header Here !"></TextBlock>
+				</suki:SideMenuModel.HeaderContent>
+
+				<suki:SideMenuModel.MenuItems>
+					<suki:SideMenuItem Header="DashBoard" Icon="CircleOutline">
+						<suki:SideMenuItem.Content>
+							<Grid RowDefinitions="50,0.9*">
+                                <Grid Grid.Row="0">
+									<StackPanel Orientation="Horizontal">
+                                        <Button  Click="Refresh_OnClick" IsEnabled="true" >Refresh Data</Button>
+								        <Button Click="Redraw_OnClick"  IsEnabled="true">Redraw</Button>
+                                    </StackPanel>
+                                </Grid>
+								<Grid Grid.Row="1" RowDefinitions="0.5*,0.5*">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition MinWidth="200" Width="0.5*"></ColumnDefinition>
+										<ColumnDefinition MinWidth="200" Width="0.5*"></ColumnDefinition>
+									</Grid.ColumnDefinitions>
+									<scott:AvaPlot Grid.Row="0" Grid.Column="0" Name="AvaPlot1"/>
+									<scott:AvaPlot Grid.Row="0" Grid.Column="1" Name="AvaPlot2"/>
+									<scott:AvaPlot Grid.Row="1" Grid.Column="0" Name="AvaPlot3"/>
+									<scott:AvaPlot Grid.Row="1" Grid.Column="1" Name="AvaPlot4"/>
+								</Grid>
+								
+							</Grid>
+                        </suki:SideMenuItem.Content>
+                    </suki:SideMenuItem>
+                </suki:SideMenuModel.MenuItems>
+
+			</suki:SideMenuModel>
+		</suki:SideMenu.DataContext>
+    </suki:SideMenu>
+
+
 </Window>
