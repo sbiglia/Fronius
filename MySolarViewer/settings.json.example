@@ -1,0 +1,10 @@
+{
+  "Database": {
+    "Server": "srv1.happycoderstudio.com",
+    "DatabaseName": "solar",
+    "User": "solar_read",
+    "Password": "KwK4qZRXox3x4jpg"
+    //"User": "solar",
+    //"Password": "**S0l4r++"
+  }
+}
