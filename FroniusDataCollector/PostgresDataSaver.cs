@@ -54,7 +54,7 @@ public class PostgresDataSaver : IDataSaver
 
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
-            ConsoleWriter.WriteLogMessage($"Data Saved: [[PGRID: {data.Site.PGrid}]] [[PLOAD: {data.Site.PLoad}]] [[PAKKU: {data.Site.PAkku}]] [[PPV: {data.Site.PPV}]]");
+            ConsoleWriter.WriteLogMessage($"Data Saved: [[PGRID: {data.Site.PGrid}]] [[PLOAD: {data.Site.PLoad}]] [[PAKKU: {data.Site.PAkku}]] [[PPV: {data.Site.PPV}]] [[Time: {timestamp.ToLocalTime()}]]");
 
         }
         catch (Exception ex)
