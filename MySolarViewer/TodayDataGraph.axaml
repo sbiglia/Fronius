@@ -2,18 +2,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:scott="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
              xmlns:viewModels="clr-namespace:MySolarViewer.ViewModels"
-             xmlns:avalonia="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
+             xmlns:ctx="clr-namespace:LiveChartsCore.Kernel;assembly=LiveChartsCore"
+             xmlns:local="clr-namespace:MySolarViewer"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="MySolarViewer.TodayDataGraph">
     <UserControl.DataContext>
         <viewModels:TodayDataGraphViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <avalonia:CartesianChart 
-            Series="{Binding Series}" 
-            XAxes="{Binding XAxes}"
-            ZoomMode="Both"/>
+		<lvc:CartesianChart Name="Chart"
+			Series="{Binding Series}"
+			XAxes="{Binding XAxes}"
+			ZoomMode="Both">
+			<lvc:CartesianChart.TooltipTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent" Padding="12">
+                        <Border Background="#353535" CornerRadius="4"
+                                BoxShadow="0 0 10 0 #40000000, 0 0 10 0 #40000000, 0 0 10 0 #40000000, 0 0 10 0 #40000000">
+							<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" >
+                            <TextBox Text="Sarasa" ></TextBox>
+                            <ItemsControl Items="{Binding Points, RelativeSource={RelativeSource AncestorType=lvc:DefaultTooltip}}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type ctx:ChartPoint}">
+                                        <Border Padding="7 5">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock
+                                                    Foreground="#fafafa"
+                                                    Text="{Binding AsTooltipString}"
+                                                    Margin="0 0 8 0"
+                                                    VerticalAlignment="Center"/>
+                                                <!-- LiveCharts uses the motion canvas control to display the series miniature -->
+                                                <lvc:MotionCanvas
+                                                    Margin="0 0 8 0"
+                                                    PaintTasks="{Binding Context.Series.CanvasSchedule.PaintSchedules}"
+                                                    Width="{Binding Context.Series.CanvasSchedule.Width}"
+                                                    Height="{Binding Context.Series.CanvasSchedule.Height}"
+                                                    VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                </DataTemplate>
+            </lvc:CartesianChart.TooltipTemplate>
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>

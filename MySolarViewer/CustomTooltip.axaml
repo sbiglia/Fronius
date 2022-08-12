@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:MySolarViewer"
+             xmlns:ctx="using:LiveChartsCore.Kernel"
+			 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MySolarViewer.CustomTooltip">
+	<UserControl.Resources>
+		<DataTemplate x:Key="customTemplate">
+			<Border Background="Transparent" Padding="12">
+				<Border Background="{Binding TooltipBackground, RelativeSource={RelativeSource AncestorType=local:CustomTooltip}}" CornerRadius="4"
+					 BoxShadow="0 0 10 0 #09000000, 0 0 10 0 #09000000, 0 0 10 0 #09000000, 0 0 10 0 #09000000">
+					<ItemsControl Items="{Binding Points, RelativeSource={RelativeSource AncestorType=local:CustomTooltip}}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+						<ItemsControl.ItemTemplate>
+							<DataTemplate DataType="{x:Type ctx:ChartPoint}">
+								<Border Padding="7 5">
+									<StackPanel Orientation="Horizontal">
+										<lvc:MotionCanvas
+											Margin="0 0 8 0"
+											PaintTasks="{Binding Context.Series.CanvasSchedule.PaintSchedules}"
+											Width="{Binding Context.Series.CanvasSchedule.Width}"
+											Height="{Binding Context.Series.CanvasSchedule.Height}"
+											VerticalAlignment="Center"/>
+										<TextBlock
+											Margin="0 0 8 0"
+											Text="{Binding AsTooltipString}"
+											FontFamily="{Binding TooltipFontFamily, RelativeSource={RelativeSource AncestorType=local:CustomTooltip}}"
+											Foreground="{Binding TooltipTextBrush, RelativeSource={RelativeSource AncestorType=local:CustomTooltip}}"
+											FontSize="{Binding TooltipFontSize, RelativeSource={RelativeSource AncestorType=local:CustomTooltip}}"
+											FontWeight="{Binding TooltipFontWeight, RelativeSource={RelativeSource AncestorType=local:CustomTooltip}}"
+											FontStyle="{Binding TooltipFontStyle, RelativeSource={RelativeSource AncestorType=local:CustomTooltip}}"
+											VerticalAlignment="Center"/>
+									</StackPanel>
+								</Border>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</Border>
+			</Border>
+		</DataTemplate>
+	</UserControl.Resources>
+</UserControl>

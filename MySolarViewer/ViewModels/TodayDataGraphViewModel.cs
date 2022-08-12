@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avalonia.Controls;
 using Avalonia.Threading;
 using LiveChartsCore;
 using LiveChartsCore.Defaults;
@@ -34,10 +35,9 @@ namespace MySolarViewer.ViewModels
                 Labeler = value => new DateTime((long) value).ToString("HH:mm"),
                 UnitWidth = TimeSpan.FromMinutes(5).Ticks,
                 MinStep = TimeSpan.FromMinutes(5).Ticks,
-                TextSize = 8
+                TextSize = 10
             }
         };
-
 
         public TodayDataGraphViewModel()
         {
@@ -54,8 +54,10 @@ namespace MySolarViewer.ViewModels
                     //GeometryStroke = new SolidColorPaint(SKColors.CadetBlue, 2),
                     Stroke = new SolidColorPaint(Yellow, 2),
                     Name = "Produced",
-                    TooltipLabelFormatter = (chart) => $"Produced: {chart.PrimaryValue:N2}W"
-
+                    TooltipLabelFormatter = (chart) => $"Produced: {chart.PrimaryValue:N2}W",
+                    EnableNullSplitting = true,
+                    LineSmoothness = 0,
+                    
                 },
                 new LineSeries<DateTimePoint>
                 {
@@ -65,10 +67,18 @@ namespace MySolarViewer.ViewModels
                     GeometryStroke = new SolidColorPaint(Blue, 2),
                     Stroke = new SolidColorPaint(Blue, 2),
                     Name="Consumed",
-                    TooltipLabelFormatter = (chart) => $"Consumed: {chart.PrimaryValue:N2}W | {chart.SecondaryValue}"
+                    TooltipLabelFormatter = (chart) => $"Consumed: {chart.PrimaryValue:N2}W",
+                    EnableNullSplitting = true,
+                    LineSmoothness = 0,
                 }
             };
 
+            if (Design.IsDesignMode)
+            {
+                GenerateEmptyData();
+                return;
+            }
+            
             _updateDataTimer.Interval = TimeSpan.FromSeconds(60);
             _updateDataTimer.Tick += UpdateTimer;
             
@@ -114,7 +124,7 @@ namespace MySolarViewer.ViewModels
                 }
                 else
                 {
-                    produced.Value = log.Ppv;
+                    produced.Value = log.Ppv < 0 ? 0 : log.Ppv;
                 }
 
                 var consumed = _consumedPoints.SingleOrDefault(x => x.DateTime == log.DateTime);
@@ -125,7 +135,7 @@ namespace MySolarViewer.ViewModels
                 }
                 else
                 {
-                    consumed.Value = log.PLoad;
+                    consumed.Value = log.PLoad < 0 ? 0: log.PLoad;
                 }
             }
         }

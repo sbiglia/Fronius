@@ -4,39 +4,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
         xmlns:local="clr-namespace:MySolarViewer"
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MySolarViewer.MainWindow"
+        Classes="NakedWindow"
         Title="MySolarViewer">
-	<suki:SideMenu>
-		<suki:SideMenu.DataContext>
-			<suki:SideMenuModel>
+    <suki:DesktopPage MenuVisibility="False" Title="MySolarViewer" CornerRadius="20">
+		<Grid>    
+            <suki:SideMenu>
+		        <suki:SideMenu.DataContext>
+			        <suki:SideMenuModel>
 
-				<suki:SideMenuModel.HeaderContent>
-					<TextBlock  Text="Your Custom header Here !"></TextBlock>
-				</suki:SideMenuModel.HeaderContent>
-
-				<suki:SideMenuModel.MenuItems>
-					<suki:SideMenuItem Header="DashBoard" Icon="CircleOutline">
-						<suki:SideMenuItem.Content>
-							<Grid>
-                                <Grid RowDefinitions="0.5*,0.5*">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition MinWidth="200" Width="0.5*"></ColumnDefinition>
-										<ColumnDefinition MinWidth="200" Width="0.5*"></ColumnDefinition>
-									</Grid.ColumnDefinitions>
-									<local:TodayDataGraph Grid.Row="0" Grid.Column="0" />
-									<local:WeeklyDataGraph Grid.Row="0" Grid.Column="1" />
-									<local:MonthlyDataGraph Grid.Row="1" Grid.Column="0"/>
-									<local:YearlyDataGraph Grid.Row="1" Grid.Column="1" />
-								</Grid>
+				        <suki:SideMenuModel.HeaderContent>
+                            <Grid Margin="20">
+                            <StackPanel Height="100" Orientation="Horizontal">
+                                <DrawingPresenter Width="48" Height="48">
+                                    <DrawingPresenter.Drawing>
+                                        <GeometryDrawing Brush="#FF000000" Geometry="M10.8,11.2 L9.6,11.2 L9.6,10.4 L6.4,10.4 L6.4,11.21 L5.201,11.21 C4.98,11.21 4.802,11.39 4.801,11.61 L4.8,12.4 C4.8,12.62 4.979,12.8 5.201,12.8 L10.8,12.79 C11.02,12.79 11.2,12.61 11.2,12.39 L11.2,11.6 C11.2,11.38 11.02,11.2 10.8,11.2 z M14.63,0.6685 C14.56,0.2827 14.22,0 13.83,0 L2.173,0 C1.775,0 1.435,0.2827 1.37,0.6685 C-0.08292,9.229 0.001083,8.702 0.0008329,8.8 C8.294E-05,9.233 0.3581,9.6 0.8158,9.6 L15.18,9.6 C15.64,9.6 16,9.236 16,8.805 C16,8.703 16.08,9.229 14.63,0.6685 z M6.496,1.6 L9.504,1.6 L9.748,4 L6.252,4 L6.496,1.6 z M4.617,8 L1.777,8 L2.253,5.2 L4.902,5.2 L4.617,8 z M5.024,4 L2.456,4 L2.863,1.6 L5.268,1.6 L5.024,4 z M5.844,8 L6.129,5.2 L9.871,5.2 L10.16,8 L5.844,8 z M10.73,1.6 L13.14,1.6 L13.54,4 L10.98,4 L10.73,1.6 z M11.38,8 L11.1,5.2 L13.75,5.2 L14.22,8 L11.38,8 z"   />
+                                    </DrawingPresenter.Drawing>
+                                </DrawingPresenter>
+                                <TextBlock VerticalAlignment="Center" Margin="20">MySolarView</TextBlock>
+					        </StackPanel>
                             </Grid>
-                        </suki:SideMenuItem.Content>
-                    </suki:SideMenuItem>
-                </suki:SideMenuModel.MenuItems>
+                        </suki:SideMenuModel.HeaderContent>
 
-			</suki:SideMenuModel>
-		</suki:SideMenu.DataContext>
-    </suki:SideMenu>
+				        <suki:SideMenuModel.MenuItems>
+                            <suki:SideMenuItem Header="Live Data" Icon="PlayBox">
+                                <suki:SideMenuItem.Content>
+                                    <local:LiveView></local:LiveView>
+                                </suki:SideMenuItem.Content>
+                            </suki:SideMenuItem>
+					        <suki:SideMenuItem Header="Historyc Data" Icon="ChartBox">
+						        <suki:SideMenuItem.Content>
+							        <local:SavedDataView></local:SavedDataView>
+                                </suki:SideMenuItem.Content>
+                            </suki:SideMenuItem>
+                        </suki:SideMenuModel.MenuItems>
 
+			        </suki:SideMenuModel>
+		        </suki:SideMenu.DataContext>
+            </suki:SideMenu>
+        </Grid>
+    </suki:DesktopPage>
 
 </Window>
